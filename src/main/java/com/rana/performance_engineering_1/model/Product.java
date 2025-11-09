@@ -26,7 +26,11 @@ public class Product {
     @JoinTable(
             name = "product_category",
             joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id")
+            inverseJoinColumns = @JoinColumn(name = "category_id"),
+            indexes = {
+                    @Index(name = "idx_product_id", columnList = "product_id"),
+                    @Index(name = "idx_category_id", columnList = "category_id")
+            }
     )
     private Set<Category> categories = new HashSet<>();
 

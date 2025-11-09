@@ -1,15 +1,13 @@
 package com.rana.performance_engineering_1.service;
 
-import com.rana.performance_engineering_1.model.Category;
 import com.rana.performance_engineering_1.model.Product;
 import com.rana.performance_engineering_1.repository.CategoryRepository;
 import com.rana.performance_engineering_1.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -55,6 +53,10 @@ public class RelatedProductService {
     //Highly efficient method all logic in sql
     public List<Product> getRelatedProducts(Long productId) {
         return productRepository.findRelatedProducts(productId);
+    }
+
+    public Optional<Product> getProduct(Long productId){
+       return productRepository.findById(productId);
     }
 
 }
