@@ -26,14 +26,14 @@ public class DataSeedConfig implements CommandLineRunner {
     public void run(String... args) throws Exception {
         System.out.println("Seeding data...");
 
-        // 1. Create 50 Categories
+        // 1. Create 500 Categories
         List<Category> categories = new ArrayList<>();
         for (int i = 1; i <= 500; i++) {
             categories.add(new Category("Category " + i));
         }
         categoryRepository.saveAll(categories);
 
-        // 2. Create 1000 Products
+        // 2. Create 10 lakh Products
         List<Product> products = new ArrayList<>();
         for (int i = 1; i <= 1000000; i++) {
             products.add(new Product("Product " + i, 10.0 + i));
